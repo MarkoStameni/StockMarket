@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/StockMarket.Server/.vs
+/StockMarket.Server/StockMarket.Database.SqlServer/bin/Debug/net7.0
+/StockMarket.Server/StockMarket.Database.SqlServer/obj
+/StockMarket.Server/StockMarket.Server/bin/Debug/net7.0
+/StockMarket.Server/StockMarket.Server/Logs
+/StockMarket.Server/StockMarket.Server/obj
