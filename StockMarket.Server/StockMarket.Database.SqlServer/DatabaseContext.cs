@@ -108,7 +108,7 @@ namespace StockMarket.Database.SqlServer
                 Share = 155
             });
 
-            modelBuilder.Entity<BuyingSellingShare>().HasData(new BuyingSellingShare
+            modelBuilder.Entity<PriceFluctuations>().HasData(new PriceFluctuations
             {
                 Id = 1,
                 CompanyId = 1,
@@ -117,7 +117,7 @@ namespace StockMarket.Database.SqlServer
                 DateUpdated = DateTime.Now,
             });
 
-            modelBuilder.Entity<BuyingSellingShare>().HasData(new BuyingSellingShare
+            modelBuilder.Entity<PriceFluctuations>().HasData(new PriceFluctuations
             {
                 Id = 2,
                 CompanyId = 1,
@@ -126,7 +126,7 @@ namespace StockMarket.Database.SqlServer
                 DateUpdated = DateTime.Now,
             });
 
-            modelBuilder.Entity<BuyingSellingShare>().HasData(new BuyingSellingShare
+            modelBuilder.Entity<PriceFluctuations>().HasData(new PriceFluctuations
             {
                 Id = 3,
                 CompanyId = 1,
@@ -135,7 +135,7 @@ namespace StockMarket.Database.SqlServer
                 DateUpdated = DateTime.Now,
             });
 
-            modelBuilder.Entity<BuyingSellingShare>().HasData(new BuyingSellingShare
+            modelBuilder.Entity<PriceFluctuations>().HasData(new PriceFluctuations
             {
                 Id = 4,
                 CompanyId = 1,
@@ -144,7 +144,7 @@ namespace StockMarket.Database.SqlServer
                 DateUpdated = DateTime.Now,
             });
 
-            modelBuilder.Entity<BuyingSellingShare>().HasData(new BuyingSellingShare
+            modelBuilder.Entity<PriceFluctuations>().HasData(new PriceFluctuations
             {
                 Id = 5,
                 CompanyId = 1,
@@ -154,7 +154,7 @@ namespace StockMarket.Database.SqlServer
             });
         }
         
-        public DbSet<BuyingSellingShare> BuyingSelingShares { get; set; }
+        public DbSet<PriceFluctuations> PriceFluctuations { get; set; }
         public DbSet<Company> Companys { get; set; }
         public DbSet<RefreshToken> RefreshTokens { get; set; }
         public DbSet<User> Users { get; set; }

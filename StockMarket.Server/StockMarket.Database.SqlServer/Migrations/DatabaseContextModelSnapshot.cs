@@ -22,75 +22,6 @@ namespace StockMarket.Database.SqlServer.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("StockMarket.Database.SqlServer.Models.BuyingSellingShare", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("CompanyId")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("DateCreated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime?>("DateUpdated")
-                        .HasColumnType("datetime2");
-
-                    b.Property<decimal>("Price")
-                        .HasColumnType("decimal(18, 2)");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("CompanyId");
-
-                    b.ToTable("BuyingSelingShares");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CompanyId = 1,
-                            DateCreated = new DateTime(2023, 8, 24, 23, 31, 59, 334, DateTimeKind.Local).AddTicks(8353),
-                            DateUpdated = new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8357),
-                            Price = 102m
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CompanyId = 1,
-                            DateCreated = new DateTime(2023, 8, 24, 23, 32, 59, 334, DateTimeKind.Local).AddTicks(8368),
-                            DateUpdated = new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8370),
-                            Price = 107m
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CompanyId = 1,
-                            DateCreated = new DateTime(2023, 8, 24, 23, 37, 59, 334, DateTimeKind.Local).AddTicks(8378),
-                            DateUpdated = new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8380),
-                            Price = 103.5m
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CompanyId = 1,
-                            DateCreated = new DateTime(2023, 8, 24, 23, 37, 59, 334, DateTimeKind.Local).AddTicks(8387),
-                            DateUpdated = new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8389),
-                            Price = 102m
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CompanyId = 1,
-                            DateCreated = new DateTime(2023, 8, 24, 23, 37, 59, 334, DateTimeKind.Local).AddTicks(8397),
-                            DateUpdated = new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8398),
-                            Price = 104m
-                        });
-                });
-
             modelBuilder.Entity("StockMarket.Database.SqlServer.Models.Company", b =>
                 {
                     b.Property<int>("Id")
@@ -120,40 +51,40 @@ namespace StockMarket.Database.SqlServer.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8294),
-                            DateUpdated = new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8295),
+                            DateCreated = new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7066),
+                            DateUpdated = new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7068),
                             Name = "AAPL",
                             Share = 150m
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8308),
-                            DateUpdated = new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8310),
+                            DateCreated = new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7110),
+                            DateUpdated = new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7111),
                             Name = "META",
                             Share = 186m
                         },
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8317),
-                            DateUpdated = new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8319),
+                            DateCreated = new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7121),
+                            DateUpdated = new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7122),
                             Name = "MSFT",
                             Share = 109m
                         },
                         new
                         {
                             Id = 4,
-                            DateCreated = new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8328),
-                            DateUpdated = new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8329),
+                            DateCreated = new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7131),
+                            DateUpdated = new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7132),
                             Name = "GOOGL",
                             Share = 199m
                         },
                         new
                         {
                             Id = 5,
-                            DateCreated = new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8336),
-                            DateUpdated = new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8338),
+                            DateCreated = new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7141),
+                            DateUpdated = new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7143),
                             Name = "AMZN",
                             Share = 155m
                         });
@@ -184,6 +115,75 @@ namespace StockMarket.Database.SqlServer.Migrations
                     b.HasIndex("CompanyId");
 
                     b.ToTable("CompanyUsers");
+                });
+
+            modelBuilder.Entity("StockMarket.Database.SqlServer.Models.PriceFluctuations", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CompanyId")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime?>("DateUpdated")
+                        .HasColumnType("datetime2");
+
+                    b.Property<decimal>("Price")
+                        .HasColumnType("decimal(18, 2)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyId");
+
+                    b.ToTable("PriceFluctuations");
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CompanyId = 1,
+                            DateCreated = new DateTime(2023, 8, 25, 20, 52, 38, 188, DateTimeKind.Local).AddTicks(7166),
+                            DateUpdated = new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7171),
+                            Price = 102m
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CompanyId = 1,
+                            DateCreated = new DateTime(2023, 8, 25, 20, 53, 38, 188, DateTimeKind.Local).AddTicks(7181),
+                            DateUpdated = new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7184),
+                            Price = 107m
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CompanyId = 1,
+                            DateCreated = new DateTime(2023, 8, 25, 20, 58, 38, 188, DateTimeKind.Local).AddTicks(7193),
+                            DateUpdated = new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7195),
+                            Price = 103.5m
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CompanyId = 1,
+                            DateCreated = new DateTime(2023, 8, 25, 20, 58, 38, 188, DateTimeKind.Local).AddTicks(7202),
+                            DateUpdated = new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7204),
+                            Price = 102m
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CompanyId = 1,
+                            DateCreated = new DateTime(2023, 8, 25, 20, 58, 38, 188, DateTimeKind.Local).AddTicks(7212),
+                            DateUpdated = new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7213),
+                            Price = 104m
+                        });
                 });
 
             modelBuilder.Entity("StockMarket.Database.SqlServer.Models.RefreshToken", b =>
@@ -267,33 +267,33 @@ namespace StockMarket.Database.SqlServer.Migrations
                         new
                         {
                             Id = 1,
-                            DateCreated = new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8169),
-                            Description = "AKO JE TRENUTNA CENA VECA OD PROSECNE CENE POSLEDNJIH PET INTERVALA",
+                            DateCreated = new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(6941),
+                            Description = "IF THE CURRENT PRICE IS HIGHER THAN THE AVERAGE PRICE OF THE LAST FIVE INTERVALS",
                             Name = "First"
                         },
                         new
                         {
                             Id = 2,
-                            DateCreated = new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8248),
-                            Description = "SREDSTVA KOJA KORISNIK IMA * KOEFICIJENT = TO JE CIFRA KOJOM KUPUJE",
+                            DateCreated = new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7024),
+                            Description = "FUNDS THAT THE USER HAS * COEFFICIENT = IT IS THE FIGURE WITH WHICH HE BUYS",
                             Name = "Second"
                         },
                         new
                         {
                             Id = 3,
-                            DateCreated = new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8261),
+                            DateCreated = new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7034),
                             Name = "Third"
                         },
                         new
                         {
                             Id = 4,
-                            DateCreated = new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8270),
+                            DateCreated = new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7042),
                             Name = "Fourth"
                         },
                         new
                         {
                             Id = 5,
-                            DateCreated = new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8278),
+                            DateCreated = new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7051),
                             Name = "Fifth"
                         });
                 });
@@ -348,17 +348,6 @@ namespace StockMarket.Database.SqlServer.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("StockMarket.Database.SqlServer.Models.BuyingSellingShare", b =>
-                {
-                    b.HasOne("StockMarket.Database.SqlServer.Models.Company", "Company")
-                        .WithMany("BuyingSelingShares")
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Company");
-                });
-
             modelBuilder.Entity("StockMarket.Database.SqlServer.Models.CompanyUser", b =>
                 {
                     b.HasOne("StockMarket.Database.SqlServer.Models.Company", "Company")
@@ -376,6 +365,17 @@ namespace StockMarket.Database.SqlServer.Migrations
                     b.Navigation("Company");
 
                     b.Navigation("User");
+                });
+
+            modelBuilder.Entity("StockMarket.Database.SqlServer.Models.PriceFluctuations", b =>
+                {
+                    b.HasOne("StockMarket.Database.SqlServer.Models.Company", "Company")
+                        .WithMany("PriceFluctuations")
+                        .HasForeignKey("CompanyId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Company");
                 });
 
             modelBuilder.Entity("StockMarket.Database.SqlServer.Models.RefreshToken", b =>
@@ -396,9 +396,9 @@ namespace StockMarket.Database.SqlServer.Migrations
 
             modelBuilder.Entity("StockMarket.Database.SqlServer.Models.Company", b =>
                 {
-                    b.Navigation("BuyingSelingShares");
-
                     b.Navigation("CompanyUsers");
+
+                    b.Navigation("PriceFluctuations");
                 });
 
             modelBuilder.Entity("StockMarket.Database.SqlServer.Models.User", b =>

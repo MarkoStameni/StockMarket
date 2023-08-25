@@ -7,27 +7,27 @@ using StockMarket.Database.SqlServer.Models;
 
 namespace StockMarket.Server.Services
 {
-    public class BuyingSellingShareService : IBuyingSellingShareService
+    public class PriceFluctuationsService : IPriceFluctuationsService
     {
         private readonly IDbContextFactory<DatabaseContext> _dbContextFactory;
         private readonly IMapper _mapper;
 
-        public BuyingSellingShareService(IDbContextFactory<DatabaseContext> dbContextFactory, IMapper mapper)
+        public PriceFluctuationsService(IDbContextFactory<DatabaseContext> dbContextFactory, IMapper mapper)
         {
             _dbContextFactory = dbContextFactory;
             _mapper = mapper;
         }
 
-        public async Task<List<BuyingSellingShareResponse>> GetLastFiveAsync(int companyId)
+        public async Task<List<PriceFluctuationsResponse>> GetLastFiveAsync(int companyId)
         {
             using var dbContext = _dbContextFactory.CreateDbContext();
-            var buyingSelingShares = await dbContext.BuyingSelingShares
+            var priceFluctuations = await dbContext.PriceFluctuations
                 .Where(x => x.CompanyId == companyId)
                 .OrderByDescending(x => x.DateCreated)
                 .Take(6)
                 .ToListAsync();
 
-            var response = _mapper.Map<List<BuyingSellingShareResponse>>(buyingSelingShares);
+            var response = _mapper.Map<List<PriceFluctuationsResponse>>(priceFluctuations);
             return response;
         }
 
@@ -35,7 +35,7 @@ namespace StockMarket.Server.Services
         {
             using var dbContext = _dbContextFactory.CreateDbContext();
 
-            var buyingSellingShare = new BuyingSellingShare
+            var priceFluctuations = new PriceFluctuations
             {
                 DateUpdated = DateTime.Now,
                 DateCreated = DateTime.Now,
@@ -43,20 +43,20 @@ namespace StockMarket.Server.Services
                 Price = newPrice
             };
 
-            dbContext.BuyingSelingShares.Add(buyingSellingShare);
+            dbContext.PriceFluctuations.Add(priceFluctuations);
             await dbContext.SaveChangesAsync();
         }
 
-        public async Task<List<BuyingSellingShareResponse>> GetLAsync(int companyId)
+        public async Task<List<PriceFluctuationsResponse>> GetLAsync(int companyId)
         {
             using var dbContext = _dbContextFactory.CreateDbContext();
-            var buyingSelingShares = await dbContext.BuyingSelingShares
+            var priceFluctuations = await dbContext.PriceFluctuations
                 .Where(x => x.CompanyId == companyId)
                 .OrderByDescending(x => x.DateCreated)
                 .Take(6)
                 .ToListAsync();
 
-            var response = _mapper.Map<List<BuyingSellingShareResponse>>(buyingSelingShares);
+            var response = _mapper.Map<List<PriceFluctuationsResponse>>(priceFluctuations);
             return response;
         }
     }

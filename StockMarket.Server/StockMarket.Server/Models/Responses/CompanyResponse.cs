@@ -15,6 +15,6 @@ namespace SstockMarket.Server.Models.Responses
         public int Share { get; set; }
         public decimal? IncreaseDecrease { get; set; }
         public string? IncreaseDecreaseText { get; set; }
-        public List<BuyingSellingShare>? BuyingSelingShares { get; set; }
+        public List<PriceFluctuations>? PriceFluctuations { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using System.Text.Json.Serialization;
 
 namespace StockMarket.Database.SqlServer.Models
 {
-    public class BuyingSellingShare : BaseModel
+    public class PriceFluctuations : BaseModel
     {
         public int CompanyId { get; set; }
         [JsonIgnore]

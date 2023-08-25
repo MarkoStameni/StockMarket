@@ -11,7 +11,7 @@ namespace StockMarket.Server.Helpers
         {
             CreateMap<User, UserResponse>().ReverseMap();
             CreateMap<Company, CompanyResponse>().ReverseMap();
-            CreateMap<BuyingSellingShare, BuyingSellingShareResponse>().ReverseMap();
+            CreateMap<PriceFluctuations, PriceFluctuationsResponse>().ReverseMap();
         }
     }
 }

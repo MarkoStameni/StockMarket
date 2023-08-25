@@ -38,7 +38,7 @@ builder.Services.AddSingleton(mapper);
 builder.Services.AddTransient<IJwtUtils, JwtUtils>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<ICompanyService, CompanyService>();
-builder.Services.AddScoped<IBuyingSellingShareService, BuyingSellingShareService>();
+builder.Services.AddScoped<IPriceFluctuationsService, PriceFluctuationsService>();
 builder.Services.AddScoped<ICompanyUserService, CompanyUserService>();
 builder.Services.AddScoped<TypeTactics>();
 

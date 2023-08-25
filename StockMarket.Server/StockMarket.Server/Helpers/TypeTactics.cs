@@ -11,20 +11,20 @@ namespace StockMarket.Server.Helpers
         private readonly ICompanyService _companyService;
         private readonly IUserService _userService;
         private readonly ICompanyUserService _companyUserService;
-        private readonly IBuyingSellingShareService _buyinhSellingShare;
+        private readonly IPriceFluctuationsService _priceFluctuationsShare;
         private readonly IMapper _mapper;
 
         public TypeTactics(
             ICompanyService companyService, 
             IUserService userService,
             ICompanyUserService companyUserService,
-            IBuyingSellingShareService buyinhSellingShare,
+            IPriceFluctuationsService priceFluctuationsShare,
             IMapper mapper)
         {
             _companyService = companyService;
             _userService = userService;
             _companyUserService = companyUserService;
-            _buyinhSellingShare = buyinhSellingShare;
+            _priceFluctuationsShare = priceFluctuationsShare;
             _mapper = mapper;
         }
 
@@ -37,14 +37,14 @@ namespace StockMarket.Server.Helpers
             { 
                 case 1:
                     var company = await _companyService.GetLastFiveAsync(companyId);
-                    var lastPrice = company!.BuyingSelingShares!.First().Price;
+                    var lastPrice = company!.PriceFluctuations!.First().Price;
 
-                    foreach (var item in company.BuyingSelingShares!.Skip(1))
+                    foreach (var item in company.PriceFluctuations!.Skip(1))
                     {
                         sumPrice += item.Price;
                     }
 
-                    if (lastPrice > sumPrice / company.BuyingSelingShares!.Count())
+                    if (lastPrice > sumPrice / company.PriceFluctuations!.Count())
                     {
                         var availableFunds = userResponse.BalanceFunds * userResponse.RiskCoefficient;
                         var canBuy = (int)(availableFunds / lastPrice);
@@ -153,7 +153,7 @@ namespace StockMarket.Server.Helpers
                     break;
             }
 
-            await _buyinhSellingShare.UpdateAsync(companyId, newPrice);
+            await _priceFluctuationsShare.UpdateAsync(companyId, newPrice);
         }
     }
 }

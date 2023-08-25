@@ -10,6 +10,6 @@ namespace StockMarket.Database.SqlServer.Models
         [Column(TypeName = "decimal(18, 2)")]
         public int Share { get; set; }
         public List<CompanyUser> CompanyUsers { get; } = new();
-        public List<BuyingSellingShare> BuyingSelingShares { get; set; } = default!;
+        public List<PriceFluctuations> PriceFluctuations { get; set; } = default!;
     }
 }

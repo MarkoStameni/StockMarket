@@ -22,17 +22,17 @@ namespace StockMarket.Server.Services
             using var dbContext = _dbContextFactory.CreateDbContext();
 
             var company = await dbContext.Companys
-                .Include(x => x.BuyingSelingShares)
+                .Include(x => x.PriceFluctuations)
                 .SingleOrDefaultAsync(x => x.Id == companyId);
 
             if (company == null)
                 return null;
 
             var response = _mapper.Map<CompanyResponse>(company);
-            response.OpenPrice = company.BuyingSelingShares.First().Price;
-            response.ClosePrice = company.BuyingSelingShares.Last().Price;
-            response.HighPrice = company.BuyingSelingShares.Select(x => x.Price).Max();
-            response.LowPrice = company.BuyingSelingShares.Select(x => x.Price).Min();
+            response.OpenPrice = company.PriceFluctuations.First().Price;
+            response.ClosePrice = company.PriceFluctuations.Last().Price;
+            response.HighPrice = company.PriceFluctuations.Select(x => x.Price).Max();
+            response.LowPrice = company.PriceFluctuations.Select(x => x.Price).Min();
 
             return response;
         }
@@ -41,7 +41,7 @@ namespace StockMarket.Server.Services
         {
             using var dbContext = _dbContextFactory.CreateDbContext();
             var companies = await dbContext.Companys
-                .Include(x => x.BuyingSelingShares.OrderByDescending(bs => bs.DateCreated).Take(2))
+                .Include(x => x.PriceFluctuations.OrderByDescending(bs => bs.DateCreated).Take(2))
                 .ToListAsync();
 
             var response = _mapper.Map<List<CompanyResponse>>(companies);
@@ -53,7 +53,7 @@ namespace StockMarket.Server.Services
             using var dbContext = _dbContextFactory.CreateDbContext();
 
             var company = await dbContext.Companys
-                .Include(x => x.BuyingSelingShares).OrderByDescending(x => x.DateCreated)
+                .Include(x => x.PriceFluctuations).OrderByDescending(x => x.DateCreated)
                 .Take(6)
                 .SingleOrDefaultAsync(x => x.Id == companyId);
 

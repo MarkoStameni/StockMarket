@@ -1,7 +1,6 @@
-﻿
-namespace SstockMarket.Server.Models.Responses
+﻿namespace SstockMarket.Server.Models.Responses
 {
-    public class BuyingSellingShareResponse
+    public class PriceFluctuationsResponse
     {
         public int Id { get; set; }
         public DateTime DateCreated { get; set; }

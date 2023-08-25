@@ -46,7 +46,7 @@ namespace StockMarket.Database.SqlServer.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "BuyingSelingShares",
+                name: "PriceFluctuations",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -58,9 +58,9 @@ namespace StockMarket.Database.SqlServer.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_BuyingSelingShares", x => x.Id);
+                    table.PrimaryKey("PK_PriceFluctuations", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_BuyingSelingShares_Companys_CompanyId",
+                        name: "FK_PriceFluctuations_Companys_CompanyId",
                         column: x => x.CompanyId,
                         principalTable: "Companys",
                         principalColumn: "Id",
@@ -155,11 +155,11 @@ namespace StockMarket.Database.SqlServer.Migrations
                 columns: new[] { "Id", "DateCreated", "DateUpdated", "Name", "Share" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8294), new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8295), "AAPL", 150m },
-                    { 2, new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8308), new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8310), "META", 186m },
-                    { 3, new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8317), new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8319), "MSFT", 109m },
-                    { 4, new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8328), new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8329), "GOOGL", 199m },
-                    { 5, new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8336), new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8338), "AMZN", 155m }
+                    { 1, new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7066), new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7068), "AAPL", 150m },
+                    { 2, new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7110), new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7111), "META", 186m },
+                    { 3, new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7121), new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7122), "MSFT", 109m },
+                    { 4, new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7131), new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7132), "GOOGL", 199m },
+                    { 5, new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7141), new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7143), "AMZN", 155m }
                 });
 
             migrationBuilder.InsertData(
@@ -167,33 +167,33 @@ namespace StockMarket.Database.SqlServer.Migrations
                 columns: new[] { "Id", "DateCreated", "DateUpdated", "Description", "Name" },
                 values: new object[,]
                 {
-                    { 1, new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8169), null, "AKO JE TRENUTNA CENA VECA OD PROSECNE CENE POSLEDNJIH PET INTERVALA", "First" },
-                    { 2, new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8248), null, "SREDSTVA KOJA KORISNIK IMA * KOEFICIJENT = TO JE CIFRA KOJOM KUPUJE", "Second" },
-                    { 3, new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8261), null, null, "Third" },
-                    { 4, new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8270), null, null, "Fourth" },
-                    { 5, new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8278), null, null, "Fifth" }
+                    { 1, new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(6941), null, "IF THE CURRENT PRICE IS HIGHER THAN THE AVERAGE PRICE OF THE LAST FIVE INTERVALS", "First" },
+                    { 2, new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7024), null, "FUNDS THAT THE USER HAS * COEFFICIENT = IT IS THE FIGURE WITH WHICH HE BUYS", "Second" },
+                    { 3, new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7034), null, null, "Third" },
+                    { 4, new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7042), null, null, "Fourth" },
+                    { 5, new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7051), null, null, "Fifth" }
                 });
 
             migrationBuilder.InsertData(
-                table: "BuyingSelingShares",
+                table: "PriceFluctuations",
                 columns: new[] { "Id", "CompanyId", "DateCreated", "DateUpdated", "Price" },
                 values: new object[,]
                 {
-                    { 1, 1, new DateTime(2023, 8, 24, 23, 31, 59, 334, DateTimeKind.Local).AddTicks(8353), new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8357), 102m },
-                    { 2, 1, new DateTime(2023, 8, 24, 23, 32, 59, 334, DateTimeKind.Local).AddTicks(8368), new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8370), 107m },
-                    { 3, 1, new DateTime(2023, 8, 24, 23, 37, 59, 334, DateTimeKind.Local).AddTicks(8378), new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8380), 103.5m },
-                    { 4, 1, new DateTime(2023, 8, 24, 23, 37, 59, 334, DateTimeKind.Local).AddTicks(8387), new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8389), 102m },
-                    { 5, 1, new DateTime(2023, 8, 24, 23, 37, 59, 334, DateTimeKind.Local).AddTicks(8397), new DateTime(2023, 8, 24, 23, 29, 59, 334, DateTimeKind.Local).AddTicks(8398), 104m }
+                    { 1, 1, new DateTime(2023, 8, 25, 20, 52, 38, 188, DateTimeKind.Local).AddTicks(7166), new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7171), 102m },
+                    { 2, 1, new DateTime(2023, 8, 25, 20, 53, 38, 188, DateTimeKind.Local).AddTicks(7181), new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7184), 107m },
+                    { 3, 1, new DateTime(2023, 8, 25, 20, 58, 38, 188, DateTimeKind.Local).AddTicks(7193), new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7195), 103.5m },
+                    { 4, 1, new DateTime(2023, 8, 25, 20, 58, 38, 188, DateTimeKind.Local).AddTicks(7202), new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7204), 102m },
+                    { 5, 1, new DateTime(2023, 8, 25, 20, 58, 38, 188, DateTimeKind.Local).AddTicks(7212), new DateTime(2023, 8, 25, 20, 50, 38, 188, DateTimeKind.Local).AddTicks(7213), 104m }
                 });
-
-            migrationBuilder.CreateIndex(
-                name: "IX_BuyingSelingShares_CompanyId",
-                table: "BuyingSelingShares",
-                column: "CompanyId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_CompanyUsers_CompanyId",
                 table: "CompanyUsers",
+                column: "CompanyId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_PriceFluctuations_CompanyId",
+                table: "PriceFluctuations",
                 column: "CompanyId");
 
             migrationBuilder.CreateIndex(
@@ -211,10 +211,10 @@ namespace StockMarket.Database.SqlServer.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "BuyingSelingShares");
+                name: "CompanyUsers");
 
             migrationBuilder.DropTable(
-                name: "CompanyUsers");
+                name: "PriceFluctuations");
 
             migrationBuilder.DropTable(
                 name: "RefreshTokens");

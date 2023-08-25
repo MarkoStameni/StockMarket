@@ -43,11 +43,11 @@ namespace StockMarket.Server.Controllers
 
             foreach(var item in companies)
             {
-                if (item.BuyingSelingShares != null && item.BuyingSelingShares.Count > 0)
+                if (item.PriceFluctuations != null && item.PriceFluctuations.Count > 0)
                 {
-                    var newPrice = item.BuyingSelingShares.First().Price;
-                    var oldPrice = item.BuyingSelingShares.Last().Price;
-                    item.LastPrice = oldPrice;
+                    var newPrice = item.PriceFluctuations.First().Price;
+                    var oldPrice = item.PriceFluctuations.Last().Price;
+                    item.LastPrice = newPrice;
                     if (newPrice > oldPrice)
                     {
                         item.IncreaseDecrease = ((newPrice - oldPrice) / oldPrice) * 100;
