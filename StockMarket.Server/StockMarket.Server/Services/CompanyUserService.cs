@@ -38,7 +38,7 @@ namespace StockMarket.Server.Services
             if (companyUser != null)
             {
                 companyUser.DateUpdated = DateTime.Now;
-                companyUser.Shares = shares;
+                companyUser.Shares = companyUser.Shares + shares;
                 dbContext.CompanyUsers.Update(companyUser);
                 await dbContext.SaveChangesAsync();
             }

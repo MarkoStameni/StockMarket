@@ -5,9 +5,11 @@ using StockMarket.Server.Requests.User;
 using StockMarket.Server.Services.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Serilog;
+using Microsoft.AspNetCore.Authorization;
 
 namespace StockMarket.Server.Controllers
 {
+    [Authorize]
     [ApiController]
     [Route("[controller]")]
     public class UserController : ControllerBase

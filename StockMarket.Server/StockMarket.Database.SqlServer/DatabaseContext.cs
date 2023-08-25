@@ -23,14 +23,50 @@ namespace StockMarket.Database.SqlServer
                 .WithMany(s => s.CompanyUsers)
                 .HasForeignKey(sc => sc.UserId);
 
+            modelBuilder.Entity<Tactics>().HasData(new Tactics
+            {
+                Id = 1,
+                Name = "First",
+                Description = "IF THE CURRENT PRICE IS HIGHER THAN THE AVERAGE PRICE OF THE LAST FIVE INTERVALS",
+                DateCreated = DateTime.Now,
+            });
+
+            modelBuilder.Entity<Tactics>().HasData(new Tactics
+            {
+                Id = 2,
+                Name = "Second",
+                Description = "FUNDS THAT THE USER HAS * COEFFICIENT = IT IS THE FIGURE WITH WHICH HE BUYS",
+                DateCreated = DateTime.Now,
+            });
+
+            modelBuilder.Entity<Tactics>().HasData(new Tactics
+            {
+                Id = 3,
+                Name = "Third",
+                Description = null,
+                DateCreated = DateTime.Now,
+            });
+
+            modelBuilder.Entity<Tactics>().HasData(new Tactics
+            {
+                Id = 4,
+                Name = "Fourth",
+                Description = null,
+                DateCreated = DateTime.Now,
+            });
+
+            modelBuilder.Entity<Tactics>().HasData(new Tactics
+            {
+                Id = 5,
+                Name = "Fifth",
+                Description = null,
+                DateCreated = DateTime.Now,
+            });
+
             modelBuilder.Entity<Company>().HasData(new Company
             {
                 Id = 1,
                 Name = "AAPL",
-                OpenPrice = 100,
-                ClosePrice = null,
-                HighPrice = null,
-                LowPrice = null,
                 DateCreated = DateTime.Now,
                 DateUpdated = DateTime.Now,
                 Share = 150
@@ -40,10 +76,6 @@ namespace StockMarket.Database.SqlServer
             {
                 Id = 2,
                 Name = "META",
-                OpenPrice = 234,
-                ClosePrice = null,
-                HighPrice = null,
-                LowPrice = null,
                 DateCreated = DateTime.Now,
                 DateUpdated = DateTime.Now,
                 Share = 186
@@ -53,10 +85,6 @@ namespace StockMarket.Database.SqlServer
             {
                 Id = 3,
                 Name = "MSFT",
-                OpenPrice = 88,
-                ClosePrice = null,
-                HighPrice = null,
-                LowPrice = null,
                 DateCreated = DateTime.Now,
                 DateUpdated = DateTime.Now,
                 Share = 109
@@ -66,10 +94,6 @@ namespace StockMarket.Database.SqlServer
             {
                 Id = 4,
                 Name = "GOOGL",
-                OpenPrice = 321,
-                ClosePrice = null,
-                HighPrice = null,
-                LowPrice = null,
                 DateCreated = DateTime.Now,
                 DateUpdated = DateTime.Now,
                 Share = 199
@@ -79,10 +103,6 @@ namespace StockMarket.Database.SqlServer
             {
                 Id = 5,
                 Name = "AMZN",
-                OpenPrice = 118,
-                ClosePrice = null,
-                HighPrice = null,
-                LowPrice = null,
                 DateCreated = DateTime.Now,
                 DateUpdated = DateTime.Now,
                 Share = 155
@@ -111,6 +131,24 @@ namespace StockMarket.Database.SqlServer
                 Id = 3,
                 CompanyId = 1,
                 Price = 103.5M,
+                DateCreated = DateTime.Now.AddMinutes(8),
+                DateUpdated = DateTime.Now,
+            });
+
+            modelBuilder.Entity<BuyingSellingShare>().HasData(new BuyingSellingShare
+            {
+                Id = 4,
+                CompanyId = 1,
+                Price = 102M,
+                DateCreated = DateTime.Now.AddMinutes(8),
+                DateUpdated = DateTime.Now,
+            });
+
+            modelBuilder.Entity<BuyingSellingShare>().HasData(new BuyingSellingShare
+            {
+                Id = 5,
+                CompanyId = 1,
+                Price = 104M,
                 DateCreated = DateTime.Now.AddMinutes(8),
                 DateUpdated = DateTime.Now,
             });

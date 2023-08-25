@@ -11,8 +11,6 @@ using StockMarket.Server.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -65,13 +63,11 @@ if (app.Environment.IsDevelopment())
       .SetIsOriginAllowed(origin => true)
       .AllowAnyMethod()
       .AllowAnyHeader()
-      //.WithExposedHeaders("content-disposition")
       .AllowCredentials());
 }
 
 app.UseHttpsRedirection();
-//app.UseAuthorization();
-//app.MapControllers();
+app.UseAuthorization();
 
 app.UseRouting();
 

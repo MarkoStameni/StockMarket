@@ -34,7 +34,6 @@ namespace StockMarket.Server.Controllers
             }
             else
                 return BadRequest(new ApiResult(ErrorCodes.InvalidParameters, "Password or email is empty"));
-            
         }
 
         [AuthorizeAttribute]
@@ -59,7 +58,6 @@ namespace StockMarket.Server.Controllers
 
         private void SetTokenCookie(string token)
         {
-            // append cookie with refresh token to the http response
             var cookieOptions = new CookieOptions
             {
                 HttpOnly = true,
@@ -70,7 +68,6 @@ namespace StockMarket.Server.Controllers
 
         private string IpAddress()
         {
-            // get source ip address for the current request
             if (Request.Headers.ContainsKey("X-Forwarded-For"))
                 return Request.Headers["X-Forwarded-For"];
             else

@@ -53,6 +53,7 @@ namespace StockMarket.Server.Services
             var saltString = Convert.ToBase64String(salt);
             user.PasswordHash = hashedPassword;
             user.Salt = saltString;
+            user.TacticsId = user.TacticsId;
             dbContext.Users.Add(user);
             await dbContext.SaveChangesAsync();
             Log.Information($"User created with name {user.FirstName} {user.LastName}");
@@ -205,6 +206,8 @@ namespace StockMarket.Server.Services
 
             var user = await dbContext.Users
                 .Include(x => x.Tactics)
+                .Include(x => x.CompanyUsers)
+                .ThenInclude(x => x.Company)
                 .SingleOrDefaultAsync(x => x.Id == id);
 
             if (user == null)

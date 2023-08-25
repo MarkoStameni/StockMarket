@@ -41,6 +41,26 @@ namespace StockMarket.Server.Controllers
             if (companies.Count == 0)
                 return Ok(new ApiResult<BaseResponse>(new BaseResponse { Message = "No companies found" }));
 
+            foreach(var item in companies)
+            {
+                if (item.BuyingSelingShares != null && item.BuyingSelingShares.Count > 0)
+                {
+                    var newPrice = item.BuyingSelingShares.First().Price;
+                    var oldPrice = item.BuyingSelingShares.Last().Price;
+                    item.LastPrice = oldPrice;
+                    if (newPrice > oldPrice)
+                    {
+                        item.IncreaseDecrease = ((newPrice - oldPrice) / oldPrice) * 100;
+                        item.IncreaseDecreaseText = "Increase";
+                    }
+                    else
+                    {
+                        item.IncreaseDecrease = ((oldPrice - newPrice) / oldPrice) * 100;
+                        item.IncreaseDecreaseText = "Decrease";
+                    }
+                }
+            }
+
             return Ok(new ApiResult<List<CompanyResponse>>(companies));
         }
     }

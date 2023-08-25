@@ -1,5 +1,4 @@
-﻿
-using StockMarket.Database.SqlServer.Models;
+﻿using StockMarket.Database.SqlServer.Models;
 
 namespace StockMarket.Server.Models.Responses
 {
@@ -10,8 +9,9 @@ namespace StockMarket.Server.Models.Responses
         public string LastName { get; set; } = string.Empty;
         public string Email { get; set; } = string.Empty;
         public decimal BalanceFunds { get; set; }
-        public decimal? NumberShares { get; set; }
+        public int? NumberShares { get; set; }
         public decimal RiskCoefficient { get; set; }
         public Tactics? Tactics { get; set; }
+        public List<CompanyUser> CompanyUsers { get; } = new();
     }
 }

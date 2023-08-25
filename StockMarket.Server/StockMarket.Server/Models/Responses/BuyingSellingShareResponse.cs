@@ -6,6 +6,5 @@ namespace SstockMarket.Server.Models.Responses
         public int Id { get; set; }
         public DateTime DateCreated { get; set; }
         public decimal Price { get; set; }
-
     }
 }

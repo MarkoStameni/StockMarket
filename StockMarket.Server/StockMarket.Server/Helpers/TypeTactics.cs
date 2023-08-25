@@ -1,9 +1,7 @@
 ﻿using AutoMapper;
 using Serilog;
 using StockMarket.Database.SqlServer.Models;
-using StockMarket.Server.Models;
 using StockMarket.Server.Models.Responses;
-using StockMarket.Server.Services;
 using StockMarket.Server.Services.Interfaces;
 
 namespace StockMarket.Server.Helpers
@@ -53,11 +51,14 @@ namespace StockMarket.Server.Helpers
 
                         if (company.Share > canBuy)
                         {
-                            Log.Warning("You bought as many shares as you have available funds");
-                            await _companyUserService.UpdateAsync(userId, companyId, canBuy);
-                            await UpdateNewBalanceFunds(userResponse, lastPrice, canBuy, "buy");
-                            await _companyService.UpdateAsync(companyId, canBuy, "buy");
-                            await InsertNewPrice(companyId, canBuy, lastPrice, "buy");
+                            if (canBuy != 0)
+                            {
+                                Log.Warning("You bought as many shares as you have available funds");
+                                await _companyUserService.UpdateAsync(userId, companyId, canBuy);
+                                await UpdateNewBalanceFunds(userResponse, lastPrice, canBuy, "buy");
+                                await _companyService.UpdateAsync(companyId, canBuy, "buy");
+                                await InsertNewPrice(companyId, canBuy, lastPrice, "buy");
+                            }
                         }
                         else
                         {
@@ -106,7 +107,6 @@ namespace StockMarket.Server.Helpers
             }
         }
 
-        //update-ujemo novu stanje
         public async Task UpdateNewBalanceFunds(UserResponse userResponse, decimal lastPrice, decimal canBuy, string buySell)
         {
             if (buySell == "buy")
@@ -124,8 +124,7 @@ namespace StockMarket.Server.Helpers
                 await _userService.UpdateAsync(user);
             }
         }
-
-        //upisujemo novu cenu 
+ 
         public async Task InsertNewPrice(int companyId, int shares, decimal lastPrice, string buySell)
         {
             var newPrice = 0.00M;

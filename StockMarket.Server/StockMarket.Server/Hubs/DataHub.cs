@@ -34,4 +34,3 @@ public class UserCompany
     public int UserId { get; set; }
     public int CompanyId { get; set; }
 }
-

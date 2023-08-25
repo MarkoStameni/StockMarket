@@ -9,8 +9,7 @@ namespace StockMarket.Server.Models.Responses
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string JwtToken { get; set; }
-
-        [JsonIgnore] // refresh token is returned in http only cookie
+        [JsonIgnore]
         public string RefreshToken { get; set; }
 
         public AuthenticateResponse(User user, string jwtToken, string refreshToken)

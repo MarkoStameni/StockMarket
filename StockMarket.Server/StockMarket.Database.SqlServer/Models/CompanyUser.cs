@@ -8,8 +8,7 @@ namespace StockMarket.Database.SqlServer.Models
         public int UserId { get; set; }
         public int CompanyId { get; set; }
         [JsonIgnore]
-        public User User { get; set; } = null!;
-        [JsonIgnore]
+        public User User { get; set; } = null!; 
         public Company Company { get; set; } = null!;
     }
 }
